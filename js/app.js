@@ -14,6 +14,7 @@ class Tamagotchi {
 const game = {
 
 	pet: null,
+	timePassed: 0,
 
 	start(name) {
 		console.log(name)
@@ -21,9 +22,33 @@ const game = {
 		// instantiate Tamagotchi
 		const newpet = new Tamagotchi(name)
 
-		console.log(newpet)
+		// console.log(newpet)
+		this.pet = newpet
+
+		this.beginTimer()
+
+	}, 
+
+	//
+	beginTimer() {
+		// start time running
+		// use setInterval
+		const timer = setInterval(() => {
+			this.timePassed ++
+			console.log(game.timePassed);
+
+
+
+
+		}, 1000)
+
+
 
 	}
+
+	//
+
+	//
 
 }
 
@@ -31,8 +56,7 @@ const game = {
 
 
 $('button').on('click', () => {
-	console.log('button works!!!!!!!!!!!');
 	const value = $('#input-box').val()
-	console.log(value, "<- value");
+	
 	game.start(value)
 })
