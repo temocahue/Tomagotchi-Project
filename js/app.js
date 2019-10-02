@@ -37,7 +37,8 @@ const game = {
 			this.timePassed ++
 			console.log(game.timePassed);
 
-
+			// any code that should be run every second
+			// goes in here
 
 
 		}, 1000)
@@ -52,6 +53,31 @@ const game = {
 
 }
 
+
+// make a method printData
+	// this will print hunger, sleepiness, boredom, and time elapsed
+	// to the screen, nbut for now, just print time as it changes
+	// (u will need a div for the value to go in)
+
+// make it so that pet's values change as time passes
+	// update your print Data to print those values on the screen to 
+	// in divs you will need to create
+	// just focus on hunger and boredom
+
+// make it so that he dies when hunger gets to (whatever)
+	// this will involve clearInterval
+
+// make a button to feed him
+	// make that button reduce his hunger
+	// call printData so that user sees that this has happened
+
+// ^^ same for boredom
+
+// he should die if boredom gets to 10 (or whatever)
+
+
+// lights
+	
 
 
 
