@@ -1,5 +1,5 @@
-class Tomagotchi {
-	constructor(age,name,hunger,boredom,sleepiness){
+class Tamagotchi {
+	constructor(name){
 		this.age = 0;
 		this.hunger = 0;
 		this.boredom = 0;
@@ -12,14 +12,27 @@ class Tomagotchi {
 }
 
 const game = {
-age: 0,
-hunger: 0,
-boredom: 0,
-sleepiness: 0,
-name: " ",
+
+	pet: null,
+
+	start(name) {
+		console.log(name)
+
+		// instantiate Tamagotchi
+		const newpet = new Tamagotchi(name)
+
+		console.log(newpet)
+
+	}
+
 }
+
+
+
+
 $('button').on('click', () => {
 	console.log('button works!!!!!!!!!!!');
+	const value = $('#input-box').val()
+	console.log(value, "<- value");
+	game.start(value)
 })
-
-
