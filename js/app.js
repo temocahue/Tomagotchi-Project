@@ -14,13 +14,10 @@ const game = {
 	pet: null,
 	timePassed: 0,
 	isAlive: true,
-	lightsOn: true,
-
-	// keep track of lights off --- use boolean
+	lightOn: true,
 
 	start() {
 
-		// instantiate Tamagotchiconst 
 		newpet = new Tamagotchi('name');
 
 		console.log(newpet)
@@ -53,7 +50,7 @@ const game = {
 			}
 			if(this.pet.hunger > 10 || this.pet.boredom > 10 || this.pet.sleepiness > 10) {
 				clearInterval(timer)
-				console.log('Pet Died!!');
+				this.endGame()
 			} 
 			
 
@@ -62,7 +59,6 @@ const game = {
 		
 	},
 
-	// call this anytime the values change
 	printData(){
 		
 		const $timer = $('#timer');
@@ -80,6 +76,8 @@ const game = {
 	},
 
 	turnOnLights(){
+		$('body').css('background-color', 'blue')
+		this.lightOn = true;
 
 
 	},
@@ -88,10 +86,8 @@ const game = {
 		this.pet.sleepiness -= 2
 		this.printData()
 		$('body').css('background-color', 'black') 
+		this.lightOn = false;
 
-
-		// css of body -- 
-		// change boolean
 	},
 	
 	feedTamagotchi() {
@@ -107,11 +103,14 @@ const game = {
 	},
 
 
+
 	endGame() {
-		// switch this.isAlive to false
-		// tell user game is over
-		// reset values
-		// be sassy
+		this.pet.age = 0
+		this.pet.hunger = 0
+		this.pet.boredom = 0
+		this.pet.sleepiness = 0
+		$('#gameover').text(`gameover!`)
+			
 	
 
 
@@ -129,10 +128,7 @@ const game = {
 
 
 $('#start').on('click', () => {
-	console.log('button works!!!!!!!!!!!');
 	const value = $('#input-box').val()
-	console.log(value, "<- value");
-
 	game.start(value)
 })
 
@@ -142,16 +138,19 @@ $('#feed').on('click', () => {
 
 $('#lightoff').on('click', () => {
 	game.turnOffLights()
-	console.log('light it works');
+	
 })
 
 $('#play').on('click', () => {
 	game.playWithTamagotchi()
-	console.log('play it works');
+	
 
 })
 
+$('#lighton').on('click', () => {
+	game.turnOnLights()
 
+})
 
 
 
