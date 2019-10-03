@@ -7,8 +7,6 @@ class Tamagotchi {
 		this.name = name
 
 	}
-
-
 }
 
 const game = {
@@ -16,73 +14,50 @@ const game = {
 	pet: null,
 	timePassed: 0,
 
-	start(name) {
-		console.log(name)
+	start() {
 
-		// instantiate Tamagotchi
-		const newpet = new Tamagotchi(name)
+		// instantiate Tamagotchiconst 
+		newpet = new Tamagotchi('name');
 
-		// console.log(newpet)
+		console.log(newpet)
+	
 		this.pet = newpet
 
 		this.beginTimer()
 
 	}, 
-
-	//
 	beginTimer() {
-		// start time running
-		// use setInterval
+	
 		const timer = setInterval(() => {
 			this.timePassed ++
-			console.log(game.timePassed);
-
-			// any code that should be run every second
-			// goes in here
-
-
+			this.printData()
 		}, 1000)
+		
+
+		
 
 
 
+	},
+	printData(){
+			const $timer = $('#timer');
+			$timer.text(`timer: ${this.timePassed}s`)
+		
 	}
 
-	//
 
-	//
+
+
 
 }
 
 
-// make a method printData
-	// this will print hunger, sleepiness, boredom, and time elapsed
-	// to the screen, nbut for now, just print time as it changes
-	// (u will need a div for the value to go in)
-
-// make it so that pet's values change as time passes
-	// update your print Data to print those values on the screen to 
-	// in divs you will need to create
-	// just focus on hunger and boredom
-
-// make it so that he dies when hunger gets to (whatever)
-	// this will involve clearInterval
-
-// make a button to feed him
-	// make that button reduce his hunger
-	// call printData so that user sees that this has happened
-
-// ^^ same for boredom
-
-// he should die if boredom gets to 10 (or whatever)
-
-
-// lights
-	
-
 
 
 $('button').on('click', () => {
+	console.log('button works!!!!!!!!!!!');
 	const value = $('#input-box').val()
-	
+	console.log(value, "<- value");
+
 	game.start(value)
 })
