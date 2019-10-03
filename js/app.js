@@ -29,16 +29,34 @@ const game = {
 	beginTimer() {
 	
 		const timer = setInterval(() => {
-			this.timePassed ++
+			this.timePassed++
+
+			if(this.timePassed > 5){
+				this.pet.age += 1
+			}
+
+			// 1. hungrier
+
+			// 2. bored
+
+
+			/// 4. sleepier -- lightsOff()
+
+
+
+			// 3. if any of the values  > 10
+				// 5. add sleepiness
+				// kill
+				// clearInterval
+				// tell the user - this.endGame()
+
+
+
 			this.printData()
 		}, 1000)
 		
-
-		
-
-
-
 	},
+
 	printData(){
 			
 			const $timer = $('#timer');
@@ -50,21 +68,20 @@ const game = {
 			$age.text(`age: ${this.pet.age}`)
 			$hunger.text(`hunger: ${this.pet.hunger}`)
 			$boredom.text(`boredom: ${this.pet.boredom}`)
-			this.pet.age = math.floor(), 0.2
-
-
-
 		
+	},
+
+	endGame() {
+		// tell user game is over
+		// reset values
+		// be sassy
 	}
-
-
-
-
 
 }
 
 
 
+// $('#feed') -- on click, call method in game that reduces hunger
 
 $('button').on('click', () => {
 	console.log('button works!!!!!!!!!!!');
