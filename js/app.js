@@ -11,10 +11,10 @@ class Tamagotchi {
 }
 
 const game = {
-
 	pet: null,
 	timePassed: 0,
 	isAlive: true,
+	lightsOn: true,
 
 	// keep track of lights off --- use boolean
 
@@ -79,7 +79,17 @@ const game = {
 	
 	},
 
+	turnOnLights(){
+
+
+	},
+
 	turnOffLights() {
+		this.pet.sleepiness -= 2
+		this.printData()
+		$('body').css('background-color', 'black') 
+
+
 		// css of body -- 
 		// change boolean
 	},
@@ -90,11 +100,12 @@ const game = {
 
 	},
 	playWithTamagotchi(){
-		game.pet.boredom -= 1
+		this.pet.boredom -= 2
 		this.printData()
 
 
-	}
+	},
+
 
 	endGame() {
 		// switch this.isAlive to false
@@ -104,12 +115,15 @@ const game = {
 	
 
 
+    }
+
 }
+
 
 	
 
 
-}
+
 
 
 
@@ -126,13 +140,13 @@ $('#feed').on('click', () => {
 	game.feedTamagotchi()
 })
 
-$('#light').on('click', () => {
-	game.pet.sleepiness -= 2
+$('#lightoff').on('click', () => {
+	game.turnOffLights()
 	console.log('light it works');
 })
 
 $('#play').on('click', () => {
-	
+	game.playWithTamagotchi()
 	console.log('play it works');
 
 })
