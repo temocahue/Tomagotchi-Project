@@ -13,6 +13,7 @@ const game = {
 
 	pet: null,
 	timePassed: 0,
+	isAlive: true,
 
 	start() {
 
@@ -31,19 +32,26 @@ const game = {
 		const timer = setInterval(() => {
 			this.timePassed++
 
-			if(this.timePassed % 2){
+			if(this.isAlive == false) {
+				clearInterval(timer)
+			}
+			if(this.timePassed % 2 === 0){
 				this.pet.age += 1
 			} 
-			 if(this.timePassed % 5){
+			 if(this.timePassed % 5 === 0){
 				this.pet.hunger += 1
 			}
-			if(this.timePassed % 1.5){
+			if(this.timePassed % 1.5 === 0){
 				this.pet.boredom += 1
+			}
+			if(this.timePassed) % 3 === 0{
+				this.pet.sleepiness 
 			}
 			if(this.pet.hunger > 10 || this.pet.boredom > 10 || this.pet.sleepiness > 10) {
 				clearInterval(timer)
 				console.log('Pet Died!!');
-			}
+			} 
+			
 
 			// 1. hungrier
 
@@ -51,14 +59,6 @@ const game = {
 
 
 			/// 4. sleepier -- lightsOff()
-
-
-
-			// 3. if any of the values  > 10
-				// 5. add sleepiness
-				// kill
-				// clearInterval
-				// tell the user - this.endGame()
 
 
 
@@ -73,6 +73,7 @@ const game = {
 			const $age = $('#age');	
 			const $hunger = $('#hunger');
 			const $boredom = $('#boredom')
+			const 
 
 			$timer.text(`timer: ${this.timePassed}s`)
 			$age.text(`age: ${this.pet.age}`)
@@ -81,7 +82,11 @@ const game = {
 		
 	},
 
+
+
+
 	endGame() {
+		// switch this.isAlive to false
 		// tell user game is over
 		// reset values
 		// be sassy
@@ -93,10 +98,48 @@ const game = {
 
 // $('#feed') -- on click, call method in game that reduces hunger
 
-$('button').on('click', () => {
+$('#start').on('click', () => {
 	console.log('button works!!!!!!!!!!!');
 	const value = $('#input-box').val()
 	console.log(value, "<- value");
 
 	game.start(value)
 })
+
+$('#feed').on('click', () => {
+	game.pet.hunger -= 1
+	console.log('feed it works');
+
+
+})
+
+$('#light').on('click', () => {
+
+	console.log('light it works');
+
+
+})
+
+$('#play').on('click', () => {
+	console.log('play it works');
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
