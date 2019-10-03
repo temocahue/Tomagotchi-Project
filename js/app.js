@@ -41,7 +41,13 @@ const game = {
 	},
 	printData(){
 			const $timer = $('#timer');
+			const $age = $('#age');	
+			const $hunger = $('#hunger');
+			const $boredom = $('#boredom')
+
 			$timer.text(`timer: ${this.timePassed}s`)
+			$age.text(`age: ${this.pet.age}`)
+
 		
 	}
 
