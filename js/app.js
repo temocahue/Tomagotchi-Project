@@ -40,6 +40,7 @@ const game = {
 
 	},
 	printData(){
+			
 			const $timer = $('#timer');
 			const $age = $('#age');	
 			const $hunger = $('#hunger');
@@ -48,6 +49,10 @@ const game = {
 			$timer.text(`timer: ${this.timePassed}s`)
 			$age.text(`age: ${this.pet.age}`)
 			$hunger.text(`hunger: ${this.pet.hunger}`)
+			$boredom.text(`boredom: ${this.pet.boredom}`)
+			this.pet.age = math.floor(), 0.2
+
+
 
 		
 	}
