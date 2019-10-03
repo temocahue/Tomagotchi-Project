@@ -37,6 +37,13 @@ const game = {
 			 if(this.timePassed % 5){
 				this.pet.hunger += 1
 			}
+			if(this.timePassed % 1.5){
+				this.pet.boredom += 1
+			}
+			if(this.pet.hunger > 10 || this.pet.boredom > 10 || this.pet.sleepiness > 10) {
+				clearInterval(timer)
+				console.log('Pet Died!!');
+			}
 
 			// 1. hungrier
 
