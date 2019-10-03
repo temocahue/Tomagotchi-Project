@@ -47,6 +47,7 @@ const game = {
 
 			$timer.text(`timer: ${this.timePassed}s`)
 			$age.text(`age: ${this.pet.age}`)
+			$hunger.text(`hunger: ${this.pet.hunger}`)
 
 		
 	}
