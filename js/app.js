@@ -31,8 +31,11 @@ const game = {
 		const timer = setInterval(() => {
 			this.timePassed++
 
-			if(this.timePassed > 5){
+			if(this.timePassed % 2){
 				this.pet.age += 1
+			} 
+			 if(this.timePassed % 5){
+				this.pet.hunger += 1
 			}
 
 			// 1. hungrier
