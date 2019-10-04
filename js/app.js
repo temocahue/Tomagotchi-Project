@@ -47,11 +47,26 @@ const game = {
 			if(this.timePassed % 3 === 0){
 				// add logic here -- sleepiness should go down when lights are off
 				this.pet.sleepiness += 1
+
+			}
+			if(this.pet.age == 2){
+				$('#begin').show()
+				$('#baby').hide()
 			}
 			if(this.pet.hunger > 10 || this.pet.boredom > 10 || this.pet.sleepiness > 10) {
 				clearInterval(timer)
+				$('#dead').show()
+				$('#begin').hide()
+				$('#wake').hide()
+				$('#playing').hide()
+				$('#feeding').hide()
+				$('#feeding').hide()
+				$("#sleeping").hide()
+				$('#baby').hide()
+				this.printData()
 				this.endGame()
 			} 
+			
 			
 
 			this.printData()
@@ -76,7 +91,7 @@ const game = {
 	},
 
 	turnOnLights(){
-		$('body').css('background-color', 'blue')
+		$('body').css('background-color', 'white')
 		this.lightOn = true;
 
 
@@ -129,25 +144,60 @@ const game = {
 
 $('#start').on('click', () => {
 	const value = $('#input-box').val()
+	$('#baby').show()
+	$('#playing').hide()
+	$('#feeding').hide()
+	$("#sleeping").hide()
+	$('#wake').hide()
+	$('#begin').hide()
 	game.start(value)
 })
 
 $('#feed').on('click', () => {
+	$('#feeding').show()
+	$("#playing").hide()
+	$('#begin').hide()
+	$("#sleeping").hide()
+	$('#wake').hide()
+	$('#baby').hide()
 	game.feedTamagotchi()
 })
 
 $('#lightoff').on('click', () => {
+	$('#sleeping').show()
+	$('#feeding').hide()
+	$('#playing').hide()
+	$('#begin').hide()
+	$('#feeding').hide()
+	$('#wake').hide()
+	$('#baby').hide()
+	
 	game.turnOffLights()
 	
 })
 
 $('#play').on('click', () => {
+	$('#playing').show()
+	$('#begin').hide()
+	$('#feeding').hide()
+	$("#sleeping").hide()
+	$('#wake').hide()
+	$('#baby').hide()
 	game.playWithTamagotchi()
 	
 
 })
 
 $('#lighton').on('click', () => {
+	$('#wake').show()
+	$('#playing').hide()
+	$('#feeding').hide()
+	$('#begin').hide()
+	$('#feeding').hide()
+	$("#sleeping").hide()
+	$('#baby').hide()
+	
+	
 	game.turnOnLights()
 
 })

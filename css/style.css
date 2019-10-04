@@ -1,4 +1,77 @@
 body{
-	background-color: rgb(0, 0, 255);
+	background-color: white;
+	color: pink;
+}
+img{
+	padding: 100px;
+	margin: 20px;
+}
+
+#start {
+	height: 50px;
 	color: white;
+	border: 1px solid white;
+	background-color: pink;
+}
+#feed{
+	height: 50px;
+	color: white;
+	border: 1px solid white;
+	background-color: pink;
+
+}
+#lighton {
+	height: 50px;
+	color: white;
+	border: 1px solid white;
+	background-color: pink;
+}
+#lightoff{
+	height: 50px;
+	color: white;
+	border: 1px solid white;
+	background-color: pink;
+}
+#play{
+	height: 50px;
+	color: white;
+	border: 1px solid white;
+	background-color: pink;
+}
+
+div{
+	text-align: center;
+
+	
+}
+button{
+
+}
+#input-box {
+	padding: 10px;
+	display: inline-block;
+	margin: 25px;
+}
+#playing{
+	display: none;
+}
+#begin {
+display: none;
+}
+#feeding {
+	display: none;
+}
+#sleeping{
+	display: none;
+}
+#wake{
+	display: none;
+}
+#dead{
+	display: none;
+	height: 250px;
+}
+#baby{
+	display: none;
+	height: 250px;
 }
